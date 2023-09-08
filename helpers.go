@@ -25,6 +25,17 @@ func NewMessage(chatID int64, text string) MessageConfig {
 	}
 }
 
+func NewMessageReply(chatID int64, replyID int, text string) MessageConfig {
+	return MessageConfig{
+		BaseChat: BaseChat{
+			ChatID:           chatID,
+			ReplyToMessageID: replyID,
+		},
+		Text:                  text,
+		DisableWebPagePreview: false,
+	}
+}
+
 func NewMessageThreadId(chatID int64, threadId int, text string) MessageConfig {
 	return MessageConfig{
 		BaseChat: BaseChat{
