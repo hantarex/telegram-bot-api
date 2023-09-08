@@ -25,6 +25,18 @@ func NewMessage(chatID int64, text string) MessageConfig {
 	}
 }
 
+func NewMessageThreadId(chatID int64, threadId int, text string) MessageConfig {
+	return MessageConfig{
+		BaseChat: BaseChat{
+			ChatID:           chatID,
+			ReplyToMessageID: 0,
+			MessageThreadId:  threadId,
+		},
+		Text:                  text,
+		DisableWebPagePreview: false,
+	}
+}
+
 // NewDeleteMessage creates a request to delete a message.
 func NewDeleteMessage(chatID int64, messageID int) DeleteMessageConfig {
 	return DeleteMessageConfig{
